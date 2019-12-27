@@ -1,8 +1,8 @@
 {
-  "name": "ldap-login",
+  "name": "td-omni-lib-ldap-login",
   "version": "1.0.5",
   "description": "Provides an easy way to implement login system based on LDAP and JWT",
-  "author": "José Vte. Calderón",
+  "author": "TireDiscounters",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jvcalderon/ldap-login.git"
+    "url": "git+https://github.com/TireDiscounters/td-omni-lib-ldap-login.git"
   },
   "keywords": [
     "LDAP",
@@ -43,7 +43,7 @@
     "security"
   ],
   "bugs": {
-    "url": "https://github.com/jvcalderon/ldap-login/issues"
+    "url": "https://github.com/TireDiscounters/td-omni-lib-ldap-login/issues"
   },
-  "homepage": "https://github.com/jvcalderon/ldap-login#readme"
+  "homepage": "https://github.com/TireDiscounters/td-omni-lib-ldap-login#readme"
 }

@@ -1,10 +1,10 @@
-[![NPM](https://nodei.co/npm/ldap-login.png?downloads=true&stars=true)](https://nodei.co/npm/ldap-login/)
+[![NPM](https://nodei.co/npm/td-omni-lib-ldap-login.png?downloads=true&stars=true)](https://nodei.co/npm/td-omni-lib-ldap-login/)
 
 LDAP Login
 =================================
 
-[![Build Status](https://travis-ci.org/jvcalderon/ldap-login.svg?branch=master)](https://travis-ci.org/jvcalderon/ldap-login)
-[![Coverage Status](https://coveralls.io/repos/github/jvcalderon/ldap-login/badge.svg?branch=master)](https://coveralls.io/github/jvcalderon/ldap-login?branch=master)
+[![Build Status](https://travis-ci.org/TireDiscounters/td-omni-lib-ldap-login.svg?branch=master)](https://travis-ci.org/TireDiscounters/td-omni-lib-ldap-login)
+[![Coverage Status](https://coveralls.io/repos/github/TireDiscounters/td-omni-lib-ldap-login/badge.svg?branch=master)](https://coveralls.io/github/TireDiscounters/td-omni-lib-ldap-login?branch=master)
 
 Provides an easy way to implement a login system based in LDAP and JWT.
 
@@ -18,7 +18,7 @@ Provides an easy way to implement a login system based in LDAP and JWT.
 ## Installation
 
 ```bash
-npm install ldap-login
+npm install td-omni-lib-ldap-login
 ```
 
 ### Additional configuration for development
@@ -38,7 +38,7 @@ npm run build
 
 ## Big picture
 
-ldap-login handle three important concepts:
+td-omni-lib-ldap-login handle three important concepts:
 
 ### Auth manager
 
@@ -56,7 +56,7 @@ Of course we can create new AuthManagers, but for now, this is not the purpose o
 LdapAuthManager and you can require it by doing this:
 
 ```typescript
-const {LdapAuthManager} = require('ldap-login')
+const {LdapAuthManager} = require('td-omni-lib-ldap-login')
 ```
 
 ### User provider
@@ -69,7 +69,7 @@ interface UserProviderInterface {
 }
 ```
 
-Obviously User class can be different depending on your application behaviour, ldap-login provides the following User
+Obviously User class can be different depending on your application behaviour, td-omni-lib-ldap-login provides the following User
 class, but you can provide your own (later we will explain how):
 
 ```typescript
@@ -103,7 +103,7 @@ export class User {
 This class receive an AuthenticatorManager and UserProvider and put them together to perform the whole login process.
 
 ```javascript
-const {Security} = require('ldap-login')
+const {Security} = require('td-omni-lib-ldap-login')
 
 const security = new Security({
   manager: ldapAuthManager, // Instange of LdapAuthManager with configuration values binded
@@ -114,7 +114,7 @@ const security = new Security({
 
 ### A quick look to exposed modules
 
-Ldap-login exposes the following components:
+td-omni-lib-ldap-login exposes the following components:
 
 ```javascript
 const {
@@ -125,7 +125,7 @@ const {
     Roles,
     User,
     SecurityMiddleware
-} = require('ldap-login')
+} = require('td-omni-lib-ldap-login')
 ```
 
 - Security: Class to compose UserProvider and AuthManager interaction.
@@ -174,7 +174,7 @@ To login by specified LDAP server you just need to do:
 
 // Module requirement------------------------------------------------------
 
-const {LdapAuthManager, LdapUserProvider, Security} = require('ldap-login')
+const {LdapAuthManager, LdapUserProvider, Security} = require('td-omni-lib-ldap-login')
 
 // Module configuration (change it with your server credentials)-----------
 
@@ -231,7 +231,7 @@ ldap.login('your_user', 'your_password').then(user => {
 const express = require('express')
 const bodyParser = require('body-parser')
 
-const {SecurityMiddleware, Roles} = require('ldap-login')
+const {SecurityMiddleware, Roles} = require('td-omni-lib-ldap-login')
 
 // Use env vars could be a good idea to configure your auth provider and middleware
 // In the previous example (basic login) we've harcoded the vars. You can use env vars instead.
@@ -295,7 +295,7 @@ not be enough).
 ### Creating your own user provider
 
 ```javascript
-const {UserProvider, User} = require('ldap-login')
+const {UserProvider, User} = require('td-omni-lib-ldap-login')
 
 class MyOwnUserProvider extends UserProvider {
     constructor(config) {
